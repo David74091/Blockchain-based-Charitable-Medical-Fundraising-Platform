@@ -75,7 +75,7 @@ const Login = (props) => {
   return (
     <div className="flex flex-row h-[1000px] bg-base-100">
       {showAlert && <CustomAlert message="登入成功" type="succes" />}
-      <div className="flex flex-col items-center w-1/2 animate-fade-in-from-left-forwards opacity-0 -translate-x-16 relative">
+      <div className="flex flex-col items-center animate-fade-in-from-left-forwards opacity-0 -translate-x-16 relative">
         <div
           className="cursor-pointer absolute top-20 left-[31%]"
           onClick={handleArrowBackClick}
@@ -87,16 +87,15 @@ const Login = (props) => {
           <div className="font-bold text-[3rem] mb-2">登入</div>
           <div className="divider"></div>
           <div className="font-medium text-3xl">歡迎回來</div>
-          <div className="mt-8 ml-1">立即登入並開始您的區塊鏈募款體驗</div>
         </div>
       </div>
       <div
         style={{ padding: "3rem" }}
-        className="flex justify-center w-1/2 col-md-12 w-[600px] container mx-auto rounded-tl-[60px] bg-white shadow-md relative"
+        className="flex justify-center col-md-12 w-[600px] container mx-auto rounded-[60px] bg-white shadow-md relative h-[550px]"
       >
         <div className="max-w-[400px] w-full">
-          <div>
-            <div className="flex justify-end mb-40">
+          <div className="flex flex-col items-center">
+            <div className="flex self-end mb-10">
               <button className="btn btn-ghost" onClick={handleRegisterClick}>
                 沒帳號？ 立即註冊
               </button>
@@ -131,12 +130,12 @@ const Login = (props) => {
             </div>
 
             <br />
-            <div className="divider absolute left-0 right-0 mt-20"></div>
+            <div className="divider absolute left-0 right-0 bottom-28 mt-12"></div>
 
-            <div className="flex justify-end">
+            <div className="flex self-end">
               <button
                 onClick={handleLogin}
-                className={`w-[6rem] btn btn-primary mt-40 ${
+                className={`w-[6rem] btn btn-primary mt-24 ${
                   btnLoading ? " loading" : ""
                 }`}
               >

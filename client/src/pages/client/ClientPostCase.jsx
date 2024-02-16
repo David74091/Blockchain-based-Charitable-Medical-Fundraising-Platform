@@ -8,6 +8,8 @@ import { Editor } from "@tinymce/tinymce-react";
 import { useStateContext } from "../../context";
 import { CustomAlert } from "../../components";
 
+//akord
+
 const ClientPostCase = (props) => {
   let { setUserUpdate, setInCampaignPage, currentUser, setCurrentUser } = props;
   //設定步驟
@@ -373,6 +375,51 @@ const ClientPostCase = (props) => {
         </div>
 
         <br />
+        <br />
+
+        {/* 新增上傳醫療證明部分 */}
+        <div className="flex justify-center w-full">
+          <div className="form-group border-2 rounded-lg p-10 w-full mt-10">
+            <div className="flex">
+              上傳醫療證明
+              <div style={{ color: "red" }}>*</div>
+              <div className="ml-20">
+                <button
+                  className="btn btn-accent"
+                  onClick={() =>
+                    document.getElementById("medicalProofImage").click()
+                  }
+                >
+                  {medicalProofImage ? "更換照片" : "請選擇圖檔"}
+                </button>
+                <input
+                  hidden
+                  accept="image/*"
+                  id="medicalProofImage"
+                  name="medicalProofImage"
+                  type="file"
+                  onChange={handleMedicalProofImageUpload}
+                />
+              </div>
+              <div className="ml-auto">
+                {medicalProofImage && (
+                  <button
+                    className="btn btn-error"
+                    onClick={() => setMedicalProofImage(null)}
+                  >
+                    移除照片
+                  </button>
+                )}
+              </div>
+            </div>
+            {medicalProofImage && (
+              <img src={medicalProofImage} alt="Preview" className="mt-4" />
+            )}
+            <br />
+          </div>
+        </div>
+
+        <br />
 
         <div className="w-full max-w-">
           <label className="label">
@@ -445,6 +492,24 @@ const ClientPostCase = (props) => {
       </div>
     </div>
   );
+
+  //醫療證明
+  // Step 2: 檔案選擇和預覽功能
+  const [medicalProofImage, setMedicalProofImage] = useState(null); // 新增狀態變量
+
+  const handleMedicalProofImageUpload = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setMedicalProofImage(reader.result);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   const [category, setCategory] = useState([]);
 
   const handleCategoryChange = (event) => {

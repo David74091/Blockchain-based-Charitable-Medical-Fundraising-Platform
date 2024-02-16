@@ -202,7 +202,7 @@ const NavBar = (props) => {
   };
 
   return (
-    <div className="flex justify-center bg-base-100 fixed top-0 left-0 right-0 z-10">
+    <div className="flex justify-center bg-base-100 fixed top-0 left-0 right-0 z-10 mx-10">
       {showAlert && <CustomAlert message="登出成功" className="" />}
       <div class="navbar bg-base-200 h-[100px] max-w-[1800px] rounded-full mt-3 ">
         <div class="flex-grow">
@@ -278,37 +278,6 @@ const NavBar = (props) => {
 
         <div class="flex-none">
           <ul class="menu menu-horizontal px-1">
-            <li className="nav-item font-medium hover:opacity-100">
-              <Link
-                className="text-[#291334] hover:text-[#291334] focus:text-[#291334]"
-                to="/CampaignPage"
-              >
-                瀏覽提案
-              </Link>
-            </li>
-
-            {/* {currentUser && currentUser.role && ( */}
-            {/* // currentUser.user.role != "admin" && */}
-
-            {/* )} */}
-
-            {currentUser &&
-              currentUser.user.role &&
-              currentUser.user.role === "proposer" && (
-                <li className="nav-item font-medium text-[rgba(112,121,139,1)]">
-                  <Link
-                    className="text-[#291334] hover:text-[#291334] focus:text-[#291334]"
-                    to={
-                      currentUser.user.organize
-                        ? "/OrganizePostCase"
-                        : "/clientpostcase"
-                    }
-                  >
-                    發布提案
-                  </Link>
-                </li>
-              )}
-
             {currentUser &&
               currentUser.user.role &&
               currentUser.user.role === "admin" && (
@@ -375,9 +344,7 @@ const NavBar = (props) => {
                   </Link>
                 </li>
               )}
-              <div className="flex items-center">
-                <div className="border-l border-sky-200 my-auto mx-2 h-7"></div>
-              </div>
+
               {currentUser && userData && (
                 <div className="dropdown dropdown-end" onClick={handleClick}>
                   <label
@@ -442,16 +409,6 @@ const NavBar = (props) => {
                     to="/"
                   >
                     登出
-                  </Link>
-                </li>
-              )}
-              {!currentUser && (
-                <li className="text-[#291334]">
-                  <Link
-                    className="nav-link hover:text-[#291334] focus:text-[#291334] nav-item font-bold leading-[normal] text-[#65C3C8]"
-                    to="/register"
-                  >
-                    註冊
                   </Link>
                 </li>
               )}

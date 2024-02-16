@@ -9,7 +9,7 @@
     "deploy": "yarn build && npx thirdweb@latest upload dist"
   },
   "dependencies": {
-    "@akord/akord-js": "^3.7.0",
+    "@akord/akord-js": "^3.11.4",
     "@thirdweb-dev/react": "^4.4.8",
     "@thirdweb-dev/sdk": "^3.10.67",
     "@tinymce/tinymce-react": "^4.3.0",
@@ -21,6 +21,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+    "ts-cacheable": "^1.0.10",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {

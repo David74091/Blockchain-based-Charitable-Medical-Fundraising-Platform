@@ -49,7 +49,7 @@ const Home = (props) => {
             </div>
           </Link>
           <Link
-            to="Register"
+            to="register"
             className="bg-secondary card w-96 h-96 bg-base-100 shadow-xl p-10"
           >
             <div className="w-full h-full flex flex-col justify-center items-center	">
